@@ -1,5 +1,12 @@
 <template>
-  <div></div>
+  <div>
+    <div>
+      <figure class="flex flex-col p-4 bg-white">
+        <img src="../assets/image/coldBg.jpg" alt="coldCard" class="w-130" />
+        <figcaption class="">Michalovce</figcaption>
+      </figure>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -14,3 +21,5 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="css" scoped></style>
