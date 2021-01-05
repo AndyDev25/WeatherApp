@@ -3,7 +3,8 @@
     class="bg-gradient-to-t via-red-400 from-yellow-300 to-red-400 min-h-screen"
   >
     <WeatherSearch />
-    <div>
+    <div class="flex justify-center space-x-8">
+      <WeatherCard />
       <WeatherCard />
     </div>
   </div>
