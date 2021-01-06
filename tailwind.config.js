@@ -23,6 +23,10 @@ module.exports = {
       },
       transitionDuration: {
         250: '250ms'
+      },
+      inset: {
+        midX: 'calc(50% - 101.615px)',
+        midY: 'calc(50% - 40px)'
       }
     }
   },
