@@ -47,8 +47,9 @@ export default defineComponent({
 
     const fetchWeather = async (): Promise<void> => {
       searchWeather.value.trim()
-      if (removeWhiteSpace.test(searchWeather.value)) {
+      if (removeWhiteSpace.test(searchWeather.value) || !searchWeather.value) {
         searchWeather.value = ''
+        return
       } else {
         await axios
           .get(
@@ -57,6 +58,7 @@ export default defineComponent({
           .then(res => {
             const weatherData = res.data
             extractData(weatherData)
+            console.log(extractData(weatherData))
           })
       }
     }
