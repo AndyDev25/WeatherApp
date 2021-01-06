@@ -1,10 +1,18 @@
 <template>
-  <div>
-    <div>
-      <figure class="flex flex-col p-4 bg-white">
-        <img src="../assets/image/coldBg.jpg" alt="coldCard" class="w-130" />
-        <figcaption class="">Michalovce</figcaption>
-      </figure>
+  <div class="">
+    <div class="flex flex-col justify-center items-center">
+      <div class="w-cardImage max-w-9/10 sm:max-w-full">
+        <img
+          src="../assets/image/coldCard.jpg"
+          alt="coldCard"
+          class="rounded-t-md w-cardImage h-cardImage object-cover transition-all duration-250 hover:h-extendedCardImage ease-in-out"
+        />
+        <div class="bg-white w-full pb-10 font-normal">
+          <div class="p-8">
+            <h2 class="">Michalovce</h2>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -22,4 +30,8 @@ export default defineComponent({
 })
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+.testimg:hover {
+  height: 540px;
+}
+</style>
