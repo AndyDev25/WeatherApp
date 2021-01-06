@@ -26,6 +26,7 @@ module.exports = {
       },
       inset: {
         midX: 'calc(50% - 101.615px)',
+        minmidX: 'calc(50% - 67.74px)',
         midY: 'calc(50% - 40px)'
       }
     }
