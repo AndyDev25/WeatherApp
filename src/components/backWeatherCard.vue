@@ -7,7 +7,7 @@
       <div role="clouds">
         <div class="flex items-center">
           <img src="@/assets/svgs/cloud.svg" alt="cloud" class="w-6 h-6" />
-          <p>Status: {{ status }},</p>
+          <p>Status: {{ cStatus }},</p>
         </div>
         <div class="flex items-center">
           <img src="@/assets/svgs/cloud.svg" alt="cloud" class="w-6 h-6" />
@@ -41,7 +41,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import BackCardInfo from './backCardInfoContainer.vue'
-import { useStore } from 'vuex'
 import { capitalize } from 'lodash-es'
 
 export default defineComponent({
@@ -69,8 +68,8 @@ export default defineComponent({
       type: String
     }
   },
-  setup() {
-    const store = useStore()
+  setup(props) {
+    const cStatus = capitalize(props.status)
 
     const convertTemperature = (Temp: number) => {
       return Math.floor(Temp - 273.15)
@@ -80,10 +79,9 @@ export default defineComponent({
     }
     return {
       convertTemperature,
-      convertSensoryTemp
+      convertSensoryTemp,
+      cStatus
     }
   }
 })
 </script>
-
-<style scoped></style>
