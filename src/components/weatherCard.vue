@@ -17,7 +17,7 @@
             class="rounded-lg w-cardImage h-cardImage object-cover"
           />
           <h2
-            class="absolute top-midY left-minmidX sm:left-midX text-black text-center text-2xl sm:text-4xl font-light"
+            class="absolute top-midY left-midX text-black text-center text-4xl font-light"
           >
             Michalovce
           </h2>
@@ -32,15 +32,60 @@
           />
           <div class="absolute inset-0 top-32 text-black">
             <div
-              class="font-light flex flex-col items-center justify-center text-base sm:text-lg"
+              class="font-light flex flex-col items-center justify-center text-lg"
             >
               <h2 class="text-lg sm:text-xl">
                 SK
               </h2>
               <div class="flex flex-col items-start flex-wrap ">
-                <p>Status: broken clouds,</p>
-                <p>Temperature: 2°C</p>
-                <p>Sensory temp: 2°C</p>
+                <div role="clouds">
+                  <div class="flex items-center">
+                    <img
+                      src="@/assets/svgs/cloud.svg"
+                      alt="cloud"
+                      class="w-6 h-6"
+                    />
+                    <p>Status: broken clouds,</p>
+                  </div>
+                  <div class="flex items-center">
+                    <img
+                      src="@/assets/svgs/cloud.svg"
+                      alt="cloud"
+                      class="w-6 h-6"
+                    />
+                    <p>
+                      Cloudiness: 100%
+                    </p>
+                  </div>
+                </div>
+                <div role="temperature">
+                  <div class="flex items-center">
+                    <img
+                      src="@/assets/svgs/coldTemp.svg"
+                      alt="cloud"
+                      class="w-6 h-6"
+                    />
+                    <p>Temperature: 2°C</p>
+                  </div>
+                  <div class="flex items-center">
+                    <img
+                      src="@/assets/svgs/coldTemp.svg"
+                      alt="cloud"
+                      class="w-6 h-6"
+                    />
+                    <p>Sensory temp: 2°C</p>
+                  </div>
+                </div>
+                <div role="wind">
+                  <div class="flex items-center">
+                    <img
+                      src="@/assets/svgs/windSpeed.svg"
+                      alt="cloud"
+                      class="w-6 h-6"
+                    />
+                    <p>Wind speed: 3.63 m/sec.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
