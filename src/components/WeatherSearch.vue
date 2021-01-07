@@ -16,9 +16,12 @@ import { defineComponent, ref } from 'vue'
 import axios from 'axios'
 import { debounce } from 'lodash-es'
 import { weatherInfo } from '@/types/vueInterface.ts'
+import { useStore } from 'vuex'
 
 export default defineComponent({
   setup() {
+    const store = useStore()
+
     const removeWhiteSpace = /^\s/
     const searchWeather = ref('')
     const KEY = 'f647bd369ac5888e2c0e377ef80fb4f5'
@@ -58,7 +61,10 @@ export default defineComponent({
           .then(res => {
             const weatherData = res.data
             extractData(weatherData)
-            console.log(extractData(weatherData))
+            store.commit('PUSHDATA', extractData(weatherData))
+            setTimeout(() => {
+              searchWeather.value = ''
+            }, 100)
           })
           .catch(err => console.log(err))
       }
