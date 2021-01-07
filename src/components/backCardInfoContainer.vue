@@ -6,7 +6,7 @@
         alt="coldCard"
         class="rounded-lg w-cardImage h-cardImage object-cover "
       />
-      <div class="absolute inset-0 top-32 text-black">
+      <div class="absolute inset-0 top-24 text-black">
         <div
           class="font-light flex flex-col items-center justify-center text-lg"
         >
