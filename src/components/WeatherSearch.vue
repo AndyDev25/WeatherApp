@@ -3,7 +3,7 @@
     <h1 class="text-3xl leading-loose text-black">WeatherApp</h1>
     <input
       type="text"
-      class="focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:border-transparent appearance-none border border-transparent max-w-9/10 sm:max-w-full w-112 py-2 px-4 bg-white text-gray-800 placeholder-gray-400 shadow-md rounded-lg text-base"
+      class="outline-none opacity-80 focus:opacity-90 focus:ring-2 focus:ring-red-500 focus:border-transparent appearance-none border border-transparent max-w-9/10 sm:max-w-full w-112 py-2 px-4 bg-white text-gray-800 placeholder-gray-400 shadow-md rounded-lg text-base capitalize"
       spellcheck="false"
       v-model="searchWeather"
       @keyup="search"
@@ -60,11 +60,12 @@ export default defineComponent({
             extractData(weatherData)
             console.log(extractData(weatherData))
           })
+          .catch(err => console.log(err))
       }
     }
     const search = debounce(() => {
       fetchWeather()
-    }, 500)
+    }, 750)
 
     return {
       searchWeather,
