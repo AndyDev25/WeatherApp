@@ -1,15 +1,48 @@
 <template>
   <div class="">
-    <div class="flex flex-col justify-center items-center">
-      <div class="w-cardImage max-w-9/10 sm:max-w-full">
-        <img
-          src="../assets/image/coldCard.jpg"
-          alt="coldCard"
-          class="rounded-t-md w-cardImage h-cardImage object-cover transition-all duration-250 hover:h-extendedCardImage ease-in-out"
-        />
-        <div class="bg-white w-full pb-10 font-normal">
-          <div class="p-8">
-            <h2 class="">Michalovce</h2>
+    <button
+      v-if="toggle.toggleTransform"
+      class="fixed inset-0 h-full w-full bg-black opacity-50 cursor-default"
+    ></button>
+    <div
+      class="animationCardContainer flex justify-center select-none"
+      @click="toggle.toggleTransform = !toggle.toggleTransform"
+      :class="{ animationCardWrapper: toggle.toggleTransform }"
+    >
+      <div class="max-w-9/10 sm:max-w-full ">
+        <div class="relative cursor-pointer frontPage">
+          <img
+            src="@/assets/image/coldCard.jpg"
+            alt="coldCard"
+            class="rounded-lg w-cardImage h-cardImage object-cover"
+          />
+          <h2
+            class="absolute top-midY left-minmidX sm:left-midX text-black text-center text-2xl sm:text-4xl font-light"
+          >
+            Michalovce
+          </h2>
+        </div>
+      </div>
+      <div class="max-w-9/10 sm:max-w-full">
+        <div class="relative cursor-pointer backPage">
+          <img
+            src="@/assets/image/coldCard.jpg"
+            alt="coldCard"
+            class="rounded-lg w-cardImage h-cardImage object-cover "
+          />
+          <div class="absolute inset-0 top-32 text-black">
+            <div
+              class="font-light flex flex-col items-center justify-center text-base sm:text-lg"
+            >
+              <h2 class="text-lg sm:text-xl">
+                SK
+              </h2>
+              <div class="flex flex-col items-start flex-wrap ">
+                <p>Status: broken clouds,</p>
+                <p>Temperature: 2°C</p>
+                <p>Sensory temp: 2°C</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -18,20 +51,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { computed, defineComponent, reactive } from 'vue'
 
 export default defineComponent({
   setup() {
-    const convertToCelsium = (temperature: number) => {
+    const toggle = reactive({
+      toggleTransform: false
+    })
+    const convertToCelsium = computed((temperature: number) => {
       return temperature - 273.15
+    })
+
+    return {
+      toggle
     }
-    return {}
   }
 })
 </script>
-
-<style lang="css" scoped>
-.testimg:hover {
-  height: 540px;
-}
-</style>
+<style lang="css" scoped></style>
