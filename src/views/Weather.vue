@@ -3,12 +3,15 @@
     class="bg-gradient-to-t via-red-400 from-yellow-300 to-red-400 min-h-screen"
   >
     <WeatherSearch />
-    <div
+    <transition-group
+      tag="div"
+      name="Weather"
       class="flex flex-col md:flex-row justify-center md:space-x-8 items-center"
     >
       <WeatherCard
+        v-cloak
         v-for="weather in Weather"
-        :key="weather.cityWeather.id"
+        :key="weather.cityWeather[0].id"
         :city="weather.city"
         :country="weather.countryInfo.country"
         :status="weather.cityWeather[0].description"
@@ -18,7 +21,7 @@
         :windSpeed="weather.wind.speed"
         :windDeg="weather.wind.deg"
       />
-    </div>
+    </transition-group>
   </div>
 </template>
 
@@ -41,5 +44,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style lang="css" scoped></style>
