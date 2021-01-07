@@ -6,7 +6,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'Weather',
     component: Weather
-  },
+  }
 ]
 
 const router = createRouter({
