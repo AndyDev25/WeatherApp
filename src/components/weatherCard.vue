@@ -2,13 +2,14 @@
   <div class="">
     <button
       v-if="toggle.toggleTransform"
-      class="fixed inset-0 h-full w-full bg-black opacity-50 cursor-default"
+      class="fixed inset-0 h-full w-full bg-black opacity-50 cursor-default z-10"
     ></button>
     <div
       class="animationCardContainer flex justify-center select-none"
       @click="toggle.toggleTransform = !toggle.toggleTransform"
       :class="{
-        animationCardWrapper: toggle.toggleTransform
+        animationCardWrapper: toggle.toggleTransform,
+        'z-20': toggle.toggleTransform
       }"
     >
       <frontWeatherPage :city="city" />
@@ -62,7 +63,6 @@ export default defineComponent({
     const toggle = reactive({
       toggleTransform: false
     })
-
     return {
       toggle
     }
