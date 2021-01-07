@@ -6,6 +6,9 @@
   * {
     @apply font-Poppins;
   }
+  [v-cloak] {
+    display: none;
+  }
 }
 @layer components {
   .animationCardContainer {
@@ -30,7 +33,18 @@
     z-index: 2;
   }
   .backPage {
-    z-index: 1;
+    z-index: 11;
     transform: rotateY(180deg);
+  }
+  /* TRANSITIONs */
+  .Weather-enter-active,
+  .Weather-leave-active {
+    transition: all 0.2s;
+  }
+
+  .Weather-enter-from,
+  .Weather-leave-to {
+    opacity: 0;
+    transform: scale(0.75);
   }
 }
