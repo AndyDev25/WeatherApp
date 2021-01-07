@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-9/10 sm:max-w-full ">
+  <div class="max-w-9/10 sm:max-w-full">
     <div class="relative cursor-pointer frontPage">
       <img
         src="@/assets/image/coldCard.jpg"
@@ -17,7 +17,6 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-// import { useStore } from 'vuex'
 export default defineComponent({
   props: {
     city: {
@@ -25,11 +24,7 @@ export default defineComponent({
     }
   },
   setup() {
-    // const store = useStore()
-    // console.log(store.state.WeatherData.length - 2)
     return {}
   }
 })
 </script>
-
-<style scoped></style>
