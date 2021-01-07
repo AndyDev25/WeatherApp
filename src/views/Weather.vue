@@ -6,9 +6,10 @@
     <transition-group
       tag="div"
       name="Weather"
-      class="flex flex-col md:flex-row justify-center md:space-x-8 items-center"
+      class="flex flex-col md:flex-row justify-start items-center flex-wrap weatherWidth mx-auto max-w-full"
     >
       <WeatherCard
+        class="mx-5"
         v-cloak
         v-for="weather in Weather"
         :key="weather.cityWeather[0].id"
@@ -44,3 +45,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="css" scoped>
+.weatherWidth {
+  width: 800px;
+}
+</style>
