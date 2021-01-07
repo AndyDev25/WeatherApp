@@ -6,20 +6,27 @@
         alt="coldCard"
         class="rounded-lg w-cardImage h-cardImage object-cover"
       />
-      <h2
-        class="absolute top-midY left-midX text-black text-center text-4xl font-light"
+      <div
+        class="absolute top-midY text-black text-center text-4xl font-light w-full"
       >
-        Michalovce
-      </h2>
+        {{ city }}
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
+// import { useStore } from 'vuex'
 export default defineComponent({
+  props: {
+    city: {
+      type: String
+    }
+  },
   setup() {
+    // const store = useStore()
+    // console.log(store.state.WeatherData.length - 2)
     return {}
   }
 })
