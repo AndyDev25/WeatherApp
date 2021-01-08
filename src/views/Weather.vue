@@ -7,6 +7,7 @@
       tag="div"
       name="Weather"
       class="flex flex-col md:flex-row justify-start items-center flex-wrap weatherWidth mx-auto max-w-full"
+      v-cloak
     >
       <WeatherCard
         class="mx-5"
@@ -28,9 +29,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useStore } from 'vuex'
 import WeatherSearch from '@/components/weatherSearch.vue'
 import WeatherCard from '@/components/weatherCard.vue'
-import { useStore } from 'vuex'
 
 export default defineComponent({
   components: { WeatherSearch, WeatherCard },
