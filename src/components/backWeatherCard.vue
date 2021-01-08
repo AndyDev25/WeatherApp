@@ -1,7 +1,7 @@
 <template>
   <BackCardInfo>
     <h2 class="text-lg sm:text-xl">
-      {{ country }}
+      {{ language ? `${country} - ${language}` : country }}
     </h2>
     <div class="flex flex-col items-start flex-wrap space-y-2">
       <div role="clouds">
@@ -77,10 +77,146 @@ export default defineComponent({
     const convertSensoryTemp = (SensoryTemp: number) => {
       return Math.floor(SensoryTemp - 273.15)
     }
+    let language
+    ;(() => {
+      switch (props.country) {
+        case 'SK':
+          language = 'Slovakia'
+          break
+        case 'AF':
+          language = 'Afrikaans'
+          break
+        case 'CZ':
+          language = 'Czechia'
+          break
+        case 'AL':
+          language = 'Albania'
+          break
+        case 'AR':
+          language = 'Arabic'
+          break
+        case 'AZ':
+          language = 'Azerbaijani'
+          break
+        case 'BG':
+          language = 'Bulgarian'
+          break
+        case 'CA':
+          language = 'Catalan'
+          break
+        case 'DA':
+          language = 'Danish'
+          break
+        case 'DE':
+          language = 'German'
+          break
+        case 'EL':
+          language = 'Greek'
+          break
+        case 'EN':
+          language = 'English'
+          break
+        case 'EU':
+          language = 'Basque'
+          break
+        case 'FA':
+          language = 'Persian'
+          break
+        case 'FI':
+          language = 'Finnish'
+          break
+        case 'FR':
+          language = 'French'
+          break
+        case 'GL':
+          language = 'Galician'
+          break
+        case 'HE':
+          language = 'Hebrew'
+          break
+        case 'HI':
+          language = 'Hindi'
+          break
+        case 'HR':
+          language = 'Croatian'
+          break
+        case 'HU':
+          language = 'Hungarian'
+          break
+        case 'ID':
+          language = 'Indonesian'
+          break
+        case 'IT':
+          language = 'Italian'
+          break
+        case 'JA':
+          language = 'Japanese'
+          break
+        case 'KR':
+          language = 'Korean'
+          break
+        case 'LA':
+          language = 'Latvian'
+          break
+        case 'LT':
+          language = 'Lithuanian'
+          break
+        case 'MK':
+          language = 'Macedonian'
+          break
+        case 'NO':
+          language = 'Macedonian'
+          break
+        case 'NL':
+          language = 'Macedonian'
+          break
+        case 'PL':
+          language = 'Macedonian'
+          break
+        case 'PT_BR':
+          language = 'Macedonian'
+          break
+        case 'RO':
+          language = 'Romanian'
+          break
+        case 'RU':
+          language = 'Russian'
+          break
+        case 'SV' || 'SE':
+          language = 'Swedish'
+          break
+        case 'SR':
+          language = 'Serbian'
+          break
+        case 'TH':
+          language = 'Thai'
+          break
+        case 'TR':
+          language = 'Turkish'
+          break
+        case 'UA' || 'UK':
+          language = 'Ukrainian'
+          break
+        case 'VI':
+          language = 'Vietnamese'
+          break
+        case 'ZH_CN':
+          language = 'Chinese Simplified'
+          break
+        case 'ZH_TW':
+          language = 'Chinese Traditional'
+          break
+        case 'ZU':
+          language = 'Zulu'
+          break
+      }
+    })()
+    // languagesList()
     return {
       convertTemperature,
       convertSensoryTemp,
-      cStatus
+      cStatus,
+      language
     }
   }
 })
