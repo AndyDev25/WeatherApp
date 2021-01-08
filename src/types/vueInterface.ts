@@ -1,4 +1,4 @@
-export interface weatherInfo {
+export interface WeatherInfo {
   id: number
   name: string
   weather: Array<object>
