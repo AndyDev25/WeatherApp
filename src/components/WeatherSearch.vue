@@ -6,7 +6,7 @@
         <input
           type="text"
           class="outline-none opacity-80 focus:opacity-90 focus:ring-2 focus:ring-red-500 focus:border-transparent appearance-none border border-transparent max-w-9/10 sm:max-w-full w-112 py-2 px-4 bg-white text-gray-800 placeholder-gray-400 shadow-md rounded-lg text-base capitalize"
-          :class="{ shakingEffect: NotExist }"
+          :class="{ shakingEffect: Hidden }"
           spellcheck="false"
           placeholder="City"
           v-model="searchWeather"
@@ -18,7 +18,7 @@
             v-if="searchWeather"
             @click="sendData"
           >
-            {{ searchWeather }}
+            {{ data.weatherData.city ? data.weatherData.city : searchWeather }}
           </button>
         </transition>
       </div>
@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, reactive } from 'vue'
 import axios from 'axios'
 import { debounce } from 'lodash-es'
 import { WeatherInfo } from '@/types/vueInterface.ts'
@@ -35,11 +35,13 @@ import { useStore } from 'vuex'
 
 export default defineComponent({
   setup() {
+    const data = reactive({
+      weatherData: {}
+    })
     const store = useStore()
     const KEY = 'f647bd369ac5888e2c0e377ef80fb4f5'
-    let weatherData: any
 
-    const NotExist = ref(false)
+    const Hidden = ref(false)
     const popUpCard = ref(false)
 
     const removeWhiteSpace = /^\s/
@@ -78,37 +80,37 @@ export default defineComponent({
             `https://api.openweathermap.org/data/2.5/weather?q=${searchWeather.value}&appid=${KEY}`
           )
           .then(res => {
-            weatherData = res.data
-            extractData(weatherData)
-            console.log(weatherData)
+            data.weatherData = extractData(res.data)
           })
           .catch(err => {
             if (err) {
-              NotExist.value = true
+              Hidden.value = true
               searchWeather.value = ''
               setTimeout(() => {
-                NotExist.value = false
+                Hidden.value = false
               }, 1000)
             }
           })
       }
     }
     const search = debounce(() => {
-      // fetchWeather()
-    }, 750)
+      fetchWeather()
+    }, 850)
 
-    const sendData = async () => {
-      // store.commit('PUSHDATA', extractData(weatherData))
-      console.log(await extractData(weatherData))
+    const sendData = () => {
+      // store.commit('PUSHDATA', data.weatherData)
+      searchWeather.value = ''
+      console.log(data.weatherData)
     }
 
     return {
       searchWeather,
       fetchWeather,
       search,
-      NotExist,
+      Hidden,
       popUpCard,
-      sendData
+      sendData,
+      data
     }
   }
 })
