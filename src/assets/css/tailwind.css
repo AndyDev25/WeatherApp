@@ -9,6 +9,9 @@
   [v-cloak] {
     display: none;
   }
+  .weatherWidth {
+    width: 800px;
+  }
 }
 @layer components {
   .animationCardContainer {
