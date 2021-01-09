@@ -45,4 +45,4 @@ yarn lint
 
 ### Known Issue
 
-- Mobile version doesn't work properly
+Nothing already.
