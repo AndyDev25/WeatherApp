@@ -6,11 +6,11 @@
     <transition-group
       tag="div"
       name="Weather"
-      class="flex flex-col md:flex-row justify-start items-center flex-wrap weatherWidth mx-auto max-w-full"
+      class="flex flex-col md:flex-row justify-center items-center flex-wrap w-full mx-auto max-w-full"
       v-cloak
     >
       <WeatherCard
-        class="mx-5"
+        class="m-4"
         v-cloak
         v-for="weather in Weather"
         :key="weather.cityWeather[0].id"
@@ -26,7 +26,6 @@
     </transition-group>
   </div>
 </template>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useStore } from 'vuex'
