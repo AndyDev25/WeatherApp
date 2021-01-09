@@ -46,3 +46,17 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="css" scoped>
+/* TRANSITIONs */
+.Weather-enter-active,
+.Weather-leave-active {
+  transition: all 0.2s;
+}
+
+.Weather-enter-from,
+.Weather-leave-to {
+  opacity: 0;
+  transform: scale(0.75);
+}
+</style>
