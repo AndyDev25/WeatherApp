@@ -42,3 +42,7 @@ yarn lint
 - Cards background by weather ❌
 - Background by weather ❌
 - Show pop menu when typing ✅
+
+### Known Issue
+
+- Mobile version doesn't work properly
