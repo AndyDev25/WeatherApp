@@ -7,7 +7,7 @@ WeatherApp is website for getting information about weather in current country.
 ## Quick Start
 
 ```
-git clone
+git clone https://github.com/AndyDev25/WeatherApp.git
 ```
 
 ---
