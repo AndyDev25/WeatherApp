@@ -21,7 +21,7 @@
         </div>
         <div class="flex items-center">
           <img src="@/assets/svgs/coldTemp.svg" alt="cloud" class="w-6 h-6" />
-          <p>Sensory temp: {{ convertSensoryTemp(SensoryTemp) }}°C</p>
+          <p>Sensory temp: {{ convertTemperature(SensoryTemp) }}°C</p>
         </div>
       </div>
       <div role="wind">
@@ -71,11 +71,15 @@ export default defineComponent({
   setup(props) {
     const cStatus = capitalize(props.status)
 
+    /**
+     * CONVERT KELVIN TO CELSIA
+     *
+     * @param   {number}  Temp
+     *
+     * @return  {[number]} return value in Celsia
+     */
     const convertTemperature = (Temp: number) => {
       return Math.floor(Temp - 273.15)
-    }
-    const convertSensoryTemp = (SensoryTemp: number) => {
-      return Math.floor(SensoryTemp - 273.15)
     }
     let language
     ;(() => {
@@ -211,10 +215,8 @@ export default defineComponent({
           break
       }
     })()
-    // languagesList()
     return {
       convertTemperature,
-      convertSensoryTemp,
       cStatus,
       language
     }
