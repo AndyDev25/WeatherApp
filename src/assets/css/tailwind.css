@@ -15,9 +15,7 @@
 }
 @layer components {
   .animationCardContainer {
-    width: 360px;
-    height: 600px;
-    position: relative;
+    @apply w-minCardImage sm:w-cardImage max-w-full h-cardImage relative;
     transition: all 0.5s ease-in-out;
     transform-style: preserve-3d;
   }
@@ -26,11 +24,7 @@
   }
 
   .animationCardContainer > div {
-    position: absolute;
-    width: 100%;
-    width: 360px;
-    height: 100%;
-    text-align: center;
+    @apply absolute w-full max-w-full text-center h-full;
   }
   .frontPage {
     z-index: 2;
