@@ -4,7 +4,7 @@
       <img
         src="@/assets/image/coldCard.jpg"
         alt="coldCard"
-        class="rounded-lg w-cardImage h-cardImage object-cover "
+        class="rounded-lg w-cardImage h-cardImage object-cover"
       />
       <div class="absolute inset-0 top-24 text-black">
         <div
