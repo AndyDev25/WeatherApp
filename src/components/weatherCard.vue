@@ -1,11 +1,11 @@
 <template>
-  <div class="">
+  <div class="max-w-9/10 sm:max-w-full">
     <button
       v-if="toggle.toggleTransform"
       class="fixed inset-0 h-full w-full bg-black opacity-50 cursor-default z-10"
     ></button>
     <div
-      class="animationCardContainer flex justify-center select-none"
+      class="animationCardContainer select-none"
       @click="toggle.toggleTransform = !toggle.toggleTransform"
       :class="{
         animationCardWrapper: toggle.toggleTransform,
