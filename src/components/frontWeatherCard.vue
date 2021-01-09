@@ -7,7 +7,7 @@
         class="rounded-lg w-cardImage h-cardImage object-cover"
       />
       <div
-        class="absolute top-midY text-black text-center text-4xl font-light w-full"
+        class="absolute top-midY text-black text-center text-4xl font-light w-full max-w-full"
       >
         {{ city }}
       </div>
