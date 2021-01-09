@@ -17,7 +17,6 @@
             class="popUpCardHeight PopUpButton"
             v-if="searchWeather"
             @click="sendData"
-            disabled="false"
           >
             <div class="inline-flex space-x-1 items-baseline">
               <section
@@ -73,7 +72,7 @@ import { useStore } from 'vuex'
 export default defineComponent({
   setup() {
     const data = reactive({
-      weatherData: {}
+      weatherData: {} as any
     })
     const store = useStore()
     const KEY = 'f647bd369ac5888e2c0e377ef80fb4f5'
@@ -137,9 +136,11 @@ export default defineComponent({
     }, 850)
 
     const sendData = () => {
-      // store.commit('PUSHDATA', data.weatherData)
-      searchWeather.value = ''
-      console.log(data.weatherData)
+      if (data.weatherData?.city) {
+        store.commit('PUSHDATA', data.weatherData)
+        searchWeather.value = ''
+        data.weatherData = {}
+      } else return null
     }
 
     return {
