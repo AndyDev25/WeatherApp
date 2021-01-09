@@ -23,7 +23,9 @@ module.exports = {
       width: {
         112: '28rem',
         130: '35rem',
-        cardImage: '360px'
+        cardImage: '360px',
+        minCardImage: '324px',
+        weatherWidth: '800px'
       },
       height: {
         '30vh': '30vh',
