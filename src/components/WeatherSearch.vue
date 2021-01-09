@@ -5,7 +5,7 @@
       <div class="relative max-w-full text-center flex flex-col items-center">
         <input
           type="text"
-          class="outline-none opacity-80 focus:opacity-90 focus:ring-2 focus:ring-red-500 focus:border-transparent appearance-none border border-transparent max-w-9/10 sm:max-w-full w-112 py-2 px-4 bg-white text-gray-800 placeholder-gray-400 shadow-md rounded-lg text-base capitalize"
+          class="WeatherInput"
           :class="{ shakingEffect: Hidden }"
           spellcheck="false"
           placeholder="City"
@@ -14,11 +14,48 @@
         />
         <transition name="popUpCard">
           <button
-            class="outline-none focus:outline-none bg-white opacity-75 hover:opacity-80 mt-1 p-3 text-left capitalize rounded-lg cursor-pointer absolute top-12 w-112 max-w-9/10 sm:max-w-full"
+            class="popUpCardHeight PopUpButton"
             v-if="searchWeather"
             @click="sendData"
+            disabled="false"
           >
-            {{ data.weatherData.city ? data.weatherData.city : searchWeather }}
+            <div class="inline-flex space-x-1 items-baseline">
+              <section
+                class=" p-1 rounded pl-2 pr-0"
+                :class="
+                  data.weatherData?.city ? '' : ['shiningEffect', 'bg-gray-400']
+                "
+              >
+                <div
+                  role="City"
+                  :class="data.weatherData?.city ? 'opacity-100' : 'opacity-0'"
+                >
+                  {{
+                    data.weatherData?.city
+                      ? data.weatherData?.city
+                      : searchWeather
+                  }}
+                </div>
+              </section>
+              <span class="ml-0">,</span>
+              <section
+                class=" p-1 rounded"
+                :class="
+                  data.weatherData?.city ? '' : ['shiningEffect', 'bg-gray-400']
+                "
+              >
+                <div
+                  role="CitySign"
+                  :class="data.weatherData?.city ? 'opacity-100' : 'opacity-0'"
+                >
+                  {{
+                    data.weatherData?.countryInfo?.country
+                      ? data.weatherData?.countryInfo?.country
+                      : 'WA'
+                  }}
+                </div>
+              </section>
+            </div>
           </button>
         </transition>
       </div>
@@ -116,56 +153,4 @@ export default defineComponent({
 })
 </script>
 
-<style lang="css" scoped>
-.City-enter-active,
-.City-leave-active {
-  transition: all 0.2s;
-}
-
-.City-enter-from,
-.City-leave-to {
-  opacity: 0;
-  transform: scale(0.75);
-}
-/**
- * POPUPCARD
- */
-.popUpCard-enter-active,
-.popUpCard-leave-active {
-  transition: all 0.2s;
-}
-
-.popUpCard-enter-from,
-.popUpCard-leave-to {
-  opacity: 0;
-  transform: scale(0.75);
-}
-
-.shakingEffect {
-  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  transform: translateX(0);
-}
-
-@keyframes shake {
-  10%,
-  90% {
-    transform: translateX(-1px);
-  }
-
-  20%,
-  80% {
-    transform: translateX(2px);
-  }
-
-  30%,
-  50%,
-  70% {
-    transform: translateX(-4px);
-  }
-
-  40%,
-  60% {
-    transform: translateX(4px);
-  }
-}
-</style>
+<style lang="css" scoped></style>
