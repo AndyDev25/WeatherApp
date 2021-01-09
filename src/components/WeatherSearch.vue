@@ -110,6 +110,7 @@ export default defineComponent({
       searchWeather.value.trim()
       if (removeWhiteSpace.test(searchWeather.value) || !searchWeather.value) {
         searchWeather.value = ''
+        data.weatherData = {}
         return
       } else {
         await axios
@@ -124,6 +125,7 @@ export default defineComponent({
               Hidden.value = true
               searchWeather.value = ''
               setTimeout(() => {
+                data.weatherData = {}
                 Hidden.value = false
               }, 1000)
             }
@@ -152,5 +154,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style lang="css" scoped></style>
