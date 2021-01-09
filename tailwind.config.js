@@ -1,5 +1,19 @@
 module.exports = {
-  purge: ['./src/**/*.vue', './public/*.html'],
+  purge: {
+    content: ['./src/**/*.vue', './public/*.html'],
+    options: {
+      safelist: [
+        'popUpCard-enter-active',
+        'popUpCard-leave-active',
+        'popUpCard-enter-from',
+        'popUpCard-leave-to',
+        'Weather-enter-active',
+        'Weather-leave-active',
+        'Weather-enter-from',
+        'Weather-leave-to'
+      ]
+    }
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
