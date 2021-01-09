@@ -46,9 +46,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style lang="css" scoped>
-.weatherWidth {
-  width: 800px;
-}
-</style>
