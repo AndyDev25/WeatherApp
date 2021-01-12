@@ -67,14 +67,13 @@ import { defineComponent, ref, reactive } from 'vue'
 import axios from 'axios'
 import { debounce } from 'lodash-es'
 import { WeatherInfo } from '@/types/vueInterface.ts'
-import { useStore } from 'vuex'
 
 export default defineComponent({
-  setup() {
+  setup(props, { emit }) {
     const data = reactive({
       weatherData: {} as any
     })
-    const store = useStore()
+
     const KEY = 'f647bd369ac5888e2c0e377ef80fb4f5'
 
     const Hidden = ref(false)
@@ -137,7 +136,7 @@ export default defineComponent({
 
     const sendData = () => {
       if (data.weatherData?.city) {
-        store.commit('PUSHDATA', data.weatherData)
+        emit('push-data', data.weatherData)
         searchWeather.value = ''
         data.weatherData = {}
       } else return null
