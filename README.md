@@ -39,8 +39,8 @@ yarn lint
 ### Incoming Features
 
 - [ ] File for removing or adding features ( Datas from API ) ❌
-- [ ] Cards background by weather ❌
-- [ ] Background by weather ❌
+- [x] Cards background by weather ✅
+- [x] Background by weather ✅
 - [x] Show pop menu when typing ✅
 
 ### Known Issue
