@@ -8,3 +8,12 @@ export interface WeatherInfo {
   sys: object
   clouds: object
 }
+
+export interface backgroundColors {
+  Snow: string
+  Rain: string
+  Drizzle: string
+  Clouds: string
+  Clear: string
+  Thunderstorm: string
+}
