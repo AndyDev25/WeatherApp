@@ -2,7 +2,7 @@
   <div class="max-w-9/10 sm:max-w-full">
     <div class="relative cursor-pointer backPage">
       <img
-        src="@/assets/image/coldCard.jpg"
+        :src="`${bgImage}`"
         alt="coldCard"
         class="rounded-lg w-cardImage h-cardImage object-cover"
       />
@@ -21,6 +21,11 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+  props: {
+    bgImage: {
+      type: String
+    }
+  },
   setup() {
     return {}
   }
