@@ -2,7 +2,8 @@
   <div
     class="bg-gradient-to-t via-red-400 from-yellow-300 to-red-400 min-h-screen"
   >
-    <WeatherSearch />
+    <WeatherSearch @push-data="Weather.push($event)" />
+
     <transition-group
       tag="div"
       name="Weather"
@@ -27,17 +28,15 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { useStore } from 'vuex'
+import { defineComponent, ref } from 'vue'
 import WeatherSearch from '@/components/weatherSearch.vue'
 import WeatherCard from '@/components/weatherCard.vue'
+import { WeatherInfo } from '@/types/vueInterface.ts'
 
 export default defineComponent({
   components: { WeatherSearch, WeatherCard },
   setup() {
-    const store = useStore()
-
-    const Weather = store.state.WeatherData
+    const Weather = ref<WeatherInfo[]>([])
 
     return {
       Weather
