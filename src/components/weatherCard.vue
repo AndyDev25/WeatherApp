@@ -12,9 +12,10 @@
         'z-20': toggle.toggleTransform
       }"
     >
-      <frontWeatherPage :city="city" />
+      <frontWeatherPage :city="city" :bgImage="weatherImage" />
       <backWeatherPage
         :status="status"
+        :bgImage="weatherImage"
         :Cloudiness="Cloudiness"
         :Temperature="Temperature"
         :SensoryTemp="SensoryTemp"
@@ -38,7 +39,7 @@ export default defineComponent({
       type: String
     },
     status: {
-      type: String
+      type: Object
     },
     Cloudiness: {
       type: Number
@@ -59,12 +60,23 @@ export default defineComponent({
       type: String
     }
   },
-  setup() {
+  setup(props) {
     const toggle = reactive({
       toggleTransform: false
     })
+    let weatherImage
+    const convertTemperature = (Temp: any) => {
+      return Math.floor(Temp - 273.15)
+    }
+
+    if (convertTemperature(props?.Temperature) >= 20) {
+      weatherImage = require('@/assets/image/warmCard.jpg')
+    } else if (convertTemperature(props?.Temperature) <= 20) {
+      weatherImage = require('@/assets/image/coldCard.jpg')
+    }
     return {
-      toggle
+      toggle,
+      weatherImage
     }
   }
 })
