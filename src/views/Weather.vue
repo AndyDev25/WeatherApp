@@ -1,8 +1,12 @@
 <template>
   <div
     class="bg-gradient-to-t via-red-400 from-yellow-300 to-red-400 min-h-screen"
+    :class="bgColors"
   >
-    <WeatherSearch @push-data="Weather.push($event)" />
+    <WeatherSearch
+      @push-data="Weather.push($event)"
+      @bg-color="bgColors.push($event)"
+    />
 
     <transition-group
       tag="div"
@@ -31,15 +35,16 @@
 import { defineComponent, ref } from 'vue'
 import WeatherSearch from '@/components/weatherSearch.vue'
 import WeatherCard from '@/components/weatherCard.vue'
-import { WeatherInfo } from '@/types/vueInterface.ts'
-
+import { extractedWeather } from '../types/vueInterface'
 export default defineComponent({
+  // eslint-disable-next-line vue/no-unused-components
   components: { WeatherSearch, WeatherCard },
   setup() {
-    const Weather = ref<WeatherInfo[]>([])
-
+    const Weather = ref<extractedWeather[]>([])
+    const bgColors = ref<any>([])
     return {
-      Weather
+      Weather,
+      bgColors
     }
   }
 })
