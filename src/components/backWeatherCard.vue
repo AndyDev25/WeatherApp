@@ -47,7 +47,7 @@ export default defineComponent({
   components: { BackCardInfo },
   props: {
     status: {
-      type: String
+      type: Object
     },
     Cloudiness: {
       type: Number
@@ -69,7 +69,7 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const cStatus = capitalize(props.status)
+    const cStatus = capitalize(props.status?.description)
 
     /**
      * CONVERT KELVIN TO CELSIA
