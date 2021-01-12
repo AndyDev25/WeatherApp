@@ -9,11 +9,12 @@ export interface WeatherInfo {
   clouds: object
 }
 
-export interface backgroundColors {
-  Snow: string
-  Rain: string
-  Drizzle: string
-  Clouds: string
-  Clear: string
-  Thunderstorm: string
+export interface extractedWeather {
+  city: string
+  cityWeather: Array<object>
+  cloudiness: object
+  id: number
+  temperature: object
+  timezone: number
+  wind: object
 }
