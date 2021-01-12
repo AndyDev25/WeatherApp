@@ -17,7 +17,7 @@
         :key="weather.cityWeather[0].id"
         :city="weather.city"
         :country="weather.countryInfo.country"
-        :status="weather.cityWeather[0].description"
+        :status="weather.cityWeather[0]"
         :Cloudiness="weather.cloudiness.all"
         :Temperature="weather.temperature.temp"
         :SensoryTemp="weather.temperature.feels_like"
