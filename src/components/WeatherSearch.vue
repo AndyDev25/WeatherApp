@@ -69,8 +69,6 @@ import axios from 'axios'
 import { debounce } from 'lodash-es'
 import { WeatherInfo } from '@/types/vueInterface.ts'
 
-import { backgrounds } from '@/assets/ts/backgrounds'
-
 export default defineComponent({
   setup(props, { emit }) {
     const data = reactive({
@@ -139,23 +137,20 @@ export default defineComponent({
 
     const sendData = () => {
       if (data.weatherData?.city) {
-        const bgColor = () => {
-          if (data.weatherData?.cityWeather[0]?.main == 'Thunderstorm') {
-            return backgrounds.Thunderstorm
-          } else if (data.weatherData?.cityWeather[0]?.main == 'Drizzle') {
-            return backgrounds.Drizzle
-          } else if (data.weatherData?.cityWeather[0]?.main == 'Rain') {
-            return backgrounds.Rain
-          } else if (data.weatherData?.cityWeather[0]?.main == 'Snow') {
-            return backgrounds.Snow
-          } else if (data.weatherData?.cityWeather[0]?.main == 'Clear') {
-            return backgrounds.Clear
-          } else if (data.weatherData?.cityWeather[0]?.main == 'Clouds') {
-            return backgrounds.Clouds
-          } else return null
+        let bgColor = ''
+        const convertTemperature = (Temp: any) => {
+          return Math.floor(Temp - 273.15)
         }
+        if (convertTemperature(data.weatherData?.temperature.temp) >= 20) {
+          bgColor = 'via-red-400 from-yellow-300 to-red-400'
+        } else if (
+          convertTemperature(data.weatherData?.temperature.temp) <= 20
+        ) {
+          bgColor = 'via-gray-300 from-gray-300 to-red-400'
+        }
+
         emit('push-data', data.weatherData)
-        emit('bg-color', bgColor())
+        emit('set-color', bgColor)
         searchWeather.value = ''
         data.weatherData = {}
       } else return null
